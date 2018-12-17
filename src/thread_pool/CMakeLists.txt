@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.13)
+SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib")
+AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/src/thread_pool thread_pool_src)
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/src/thread_pool/include")
+ADD_LIBRARY(thread_pool SHARED ${thread_pool_src})

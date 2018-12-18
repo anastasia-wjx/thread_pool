@@ -1,5 +1,10 @@
-cmake_minimum_required(VERSION 3.13)
-SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib")
-AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/src/thread_pool thread_pool_src)
-INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/src/thread_pool/include")
-ADD_LIBRARY(thread_pool SHARED ${thread_pool_src})
+cmake_minimum_required(VERSION 3.12.1)
+SET(THREAD_POOL_NAME thread_pool)
+MESSAGE(aaaa ${THREAD_POOL_NAME})
+SET(THREAD_POOL_SRCLIST
+        include/thread_pool/thread_pool.h
+        thread_pool.cpp)
+
+ADD_LIBRARY(${THREAD_POOL_NAME} ${THREAD_POOL_SRCLIST})
+find_package(Threads)
+target_link_libraries(${THREAD_POOL_NAME} ${CMAKE_THREAD_LIBS_INIT})

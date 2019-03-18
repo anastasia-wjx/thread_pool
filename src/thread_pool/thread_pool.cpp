@@ -38,7 +38,6 @@ void* CThreadPool::ThreadFunc(void* threadData) {
             printf("[tid: %lu]\texit\n", pthread_self());
             pthread_exit(NULL);
         }
-
         printf("[tid: %lu]\trun: ", tid);
         vector<CTask*>::iterator iter = m_vecTaskList.begin();
         //取出一个任务处理
